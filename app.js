@@ -46,4 +46,4 @@ function BarChart() {
     return <svg ref={ref}></svg>;
 }
 
-ReactDOM.render(<BarChart />, document.getElementById('chart'));
+ReactDOM.render(<BarChart />, document.getElementById("chart"));
