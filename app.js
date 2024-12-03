@@ -8,10 +8,10 @@ function BarChart() {
         const width = 500;
         const height = 300;
         const svg = d3.select(ref.current)
-            .attr('width', width)
-            .attr('height', height)
-            .style('overflow', 'visible')
-            .style('margin-top', '50px');
+            .attr("width", width)
+            .attr("height", height)
+            .style("overflow", "visible")
+            .style("margin-top", "50px");
 
         const xScale = d3.scaleBand()
             .domain(data.map((val, index) => index))
@@ -25,22 +25,22 @@ function BarChart() {
         const xAxis = d3.axisBottom(xScale).ticks(data.length);
         const yAxis = d3.axisLeft(yScale).ticks(5);
 
-        svg.append('g')
+        svg.append("g")
             .call(xAxis)
-            .attr('transform', `translate(0, ${height})`);
+            .attr("transform", `translate(0, ${height})`);
 
-        svg.append('g')
+        svg.append("g")
             .call(yAxis);
 
-        svg.selectAll('.bar')
+        svg.selectAll(".bar")
             .data(data)
             .enter()
-            .append('rect')
-            .attr('x', (d, i) => xScale(i))
-            .attr('y', yScale)
-            .attr('width', xScale.bandwidth())
-            .attr('height', val => height - yScale(val))
-            .attr('fill', '#4CAF50');
+            .append("rect")
+            .attr("x", (d, i) => xScale(i))
+            .attr("y", yScale)
+            .attr("width", xScale.bandwidth())
+            .attr("height", val => height - yScale(val))
+            .attr("fill", "#4CAF50");
     }, []);
 
     return <svg ref={ref}></svg>;
